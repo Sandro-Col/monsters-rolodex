@@ -10,14 +10,15 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-
+    console.log("constructor!");
     this.state = {
       monsters: [],
       searchField: ''
-   };
+   };   
   }
 
   componentDidMount() {
+    console.log("componentDidMount!");
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState({ monsters: users }));
@@ -33,6 +34,8 @@ class App extends Component {
     const filteredMonsters = monsters.filter(monster =>
       monster.name.toLowerCase().includes(searchField.toLowerCase())
     );
+    
+    console.log("render!");
 
     return (
       <div className='App'>
